@@ -8,6 +8,7 @@ class WebtechnologieApplicationTests {
 
 	@Test
 	void contextLoads() {
+		throw new RuntimeException("for test");
 	}
 
 }
