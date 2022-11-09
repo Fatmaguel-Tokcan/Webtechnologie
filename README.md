@@ -2,3 +2,14 @@
 
 
 # README
+ToDo-Liste
+- Tasks können hinzugefügt werden 
+- Wochentag und Uhrzeit können hinzugefügt werden
+- Man sollte die Tasks abhaken können
+- mann sollte sie löschen können
+- Man sollte sie speichern können
+- Nach Alphabet ordnen nach deadline
+- suchfeld
+- Bereits gemachte tasks archivieren
+- noch zuerledigende tasks
+-
