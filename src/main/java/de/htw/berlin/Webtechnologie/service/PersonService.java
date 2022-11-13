@@ -2,7 +2,7 @@ package de.htw.berlin.Webtechnologie.service;
 
 
 import de.htw.berlin.Webtechnologie.api.Person;
-import de.htw.berlin.Webtechnologie.api.PersonCreateRequest;
+import de.htw.berlin.Webtechnologie.api.PersonManipulationRequest;
 import de.htw.berlin.Webtechnologie.persistence.PersonEntity;
 import de.htw.berlin.Webtechnologie.persistence.PersonRepository;
 import org.springframework.stereotype.Service;
@@ -26,20 +26,21 @@ public class PersonService {
                 .collect(Collectors.toList());
     }
 
-    public Person findById(Long id) {
+    public Person findById(Long id){
         var personEntity = personRepository.findById(id);
         return personEntity.map(this::transformEntity).orElse(null);
+
     }
 
-    public Person create(PersonCreateRequest request) {
+    public Person create(PersonManipulationRequest request) {
         var personEntity = new PersonEntity(request.getFirstName(), request.getLastName(), request.isVaccinated());
         personEntity = personRepository.save(personEntity);
         return transformEntity(personEntity);
     }
 
-    public Person update(Long id, PersonCreateRequest request) {
+    public Person update(Long id, PersonManipulationRequest request){
         var personEntityOptional = personRepository.findById(id);
-        if (personEntityOptional.isEmpty()) {
+        if (personEntityOptional.isEmpty()){
             return null;
         }
 
@@ -52,11 +53,10 @@ public class PersonService {
         return transformEntity(personEntity);
     }
 
-    public boolean deleteById(Long id) {
-        if (!personRepository.existsById(id)) {
+    public boolean deleteById(Long id){
+        if (!personRepository.existsById(id)){
             return false;
         }
-
         personRepository.deleteById(id);
         return true;
     }
