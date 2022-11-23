@@ -8,8 +8,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface PersonRepository extends JpaRepository<PersonEntity, Long> {
+public interface TodoListRepository extends JpaRepository<TodoListEntity, Long> {
 
-   List<PersonEntity> findAllByFirstName(String firstName);
+   List<TodoListEntity> findAllById(Long id);
 
 }
+
