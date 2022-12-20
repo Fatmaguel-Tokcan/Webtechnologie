@@ -23,7 +23,7 @@ public class TodoListManipulationRequest {
             this.speichern = speichern;
             this.löschen = löschen;
         }
-
+public TodoListManipulationRequest(){}
 
     public void setAbgabedatum(LocalDate abgabedatum) {
         Abgabedatum = abgabedatum;
